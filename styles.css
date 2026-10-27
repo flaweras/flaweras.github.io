@@ -245,7 +245,10 @@ a {
 .marquee__track {
   display: flex;
   width: max-content;
-  animation: marquee-scroll 30s linear infinite;
+  /* Длительность считает main.js под ширину окна; 30s — запасной вариант
+     для ленты из двух копий, если скрипт не загрузился. */
+  animation: marquee-scroll var(--marquee-duration, 30s) linear infinite;
+  will-change: transform;
 }
 
 .marquee__item {
